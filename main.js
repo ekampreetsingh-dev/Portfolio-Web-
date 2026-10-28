@@ -350,23 +350,17 @@
     });
   }
 
-  /* orange cursor aura, follows the pointer anywhere */
+  /* orange cursor aura that follows the pointer */
   const auraCanvas = $('[data-aura-field]');
   const auraCtx = auraCanvas && finePointer && auraCanvas.getContext ? auraCanvas.getContext('2d') : null;
   if (auraCtx) {
-    const GLOW_TONES = [[255, 87, 0], [255, 122, 31], [255, 154, 61], [255, 178, 122], [255, 64, 0]];
-    const TRAIL_MS = 560;
-    const EMBER_MS = 950;
     let vw = 1;
     let vh = 1;
     let raf = 0;
     let target = 0;
     let strength = 0;
-    let trail = [];
-    let embers = [];
     let px = -9999;
     let py = -9999;
-    let lastPoint = 0;
     let lastMove = 0;
 
     const resize = () => {
@@ -384,32 +378,14 @@
       if (strength < 0.012 && target === 0) {
         auraCtx.clearRect(0, 0, vw, vh);
         auraCanvas.classList.remove('is-active');
-        trail = [];
-        embers = [];
         return;
       }
       auraCanvas.classList.add('is-active');
       auraCtx.clearRect(0, 0, vw, vh);
       auraCtx.globalCompositeOperation = 'lighter';
 
-      trail = trail.filter((p) => now - p.t < TRAIL_MS);
-      for (let i = 0; i < trail.length; i++) {
-        const p = trail[i];
-        const age = (now - p.t) / TRAIL_MS;
-        const fade = (1 - age) * (1 - age) * 0.13 * strength;
-        const tone = GLOW_TONES[i % GLOW_TONES.length];
-        const radius = 40 + (1 - age) * 62;
-        const grad = auraCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, radius);
-        grad.addColorStop(0, 'rgba(' + tone[0] + ',' + tone[1] + ',' + tone[2] + ',' + fade.toFixed(3) + ')');
-        grad.addColorStop(1, 'rgba(' + tone[0] + ',' + tone[1] + ',' + tone[2] + ',0)');
-        auraCtx.fillStyle = grad;
-        auraCtx.beginPath();
-        auraCtx.arc(p.x, p.y, radius, 0, Math.PI * 2);
-        auraCtx.fill();
-      }
-
-      const pulse = 0.9 + 0.1 * Math.sin(now * 0.0021);
-      const auraRadius = 150 * pulse;
+      const pulse = 0.94 + 0.06 * Math.sin(now * 0.0021);
+      const auraRadius = 165 * pulse;
       const aura = auraCtx.createRadialGradient(px, py, 0, px, py, auraRadius);
       aura.addColorStop(0, 'rgba(255,199,156,' + (0.17 * strength).toFixed(3) + ')');
       aura.addColorStop(0.3, 'rgba(255,122,31,' + (0.12 * strength).toFixed(3) + ')');
@@ -420,32 +396,15 @@
       auraCtx.arc(px, py, auraRadius, 0, Math.PI * 2);
       auraCtx.fill();
 
-      const core = auraCtx.createRadialGradient(px, py, 0, px, py, 22);
+      const core = auraCtx.createRadialGradient(px, py, 0, px, py, 26);
       core.addColorStop(0, 'rgba(255,244,235,' + (0.26 * strength).toFixed(3) + ')');
       core.addColorStop(1, 'rgba(255,140,70,0)');
       auraCtx.fillStyle = core;
       auraCtx.beginPath();
-      auraCtx.arc(px, py, 22, 0, Math.PI * 2);
+      auraCtx.arc(px, py, 26, 0, Math.PI * 2);
       auraCtx.fill();
 
-      embers = embers.filter((e) => now - e.t < EMBER_MS);
-      for (let i = 0; i < embers.length; i++) {
-        const e = embers[i];
-        const age = (now - e.t) / EMBER_MS;
-        const alpha = (1 - age) * 0.38 * strength;
-        const x = e.x + e.vx * age * 46;
-        const y = e.y + e.vy * age * 46 - age * age * 12;
-        const radius = e.r * 4.5 * (1 - age * 0.3);
-        const grad = auraCtx.createRadialGradient(x, y, 0, x, y, radius);
-        grad.addColorStop(0, 'rgba(255,198,150,' + alpha.toFixed(3) + ')');
-        grad.addColorStop(1, 'rgba(255,87,0,0)');
-        auraCtx.fillStyle = grad;
-        auraCtx.beginPath();
-        auraCtx.arc(x, y, radius, 0, Math.PI * 2);
-        auraCtx.fill();
-      }
-
-      raf = trail.length || embers.length || now - lastMove < 1500 ? requestAnimationFrame(paint) : 0;
+      if (target === 1 ? now - lastMove < 1500 : strength >= 0.012) raf = requestAnimationFrame(paint);
     };
 
     const start = () => {
@@ -457,24 +416,7 @@
       target = 1;
       px = event.clientX;
       py = event.clientY;
-      const now = performance.now();
-      lastMove = now;
-      if (now - lastPoint > 14) {
-        lastPoint = now;
-        trail.push({ x: px, y: py, t: now });
-        if (trail.length > 18) trail.shift();
-        if (Math.random() < 0.45) {
-          embers.push({
-            x: px + (Math.random() - 0.5) * 30,
-            y: py + (Math.random() - 0.5) * 22,
-            vx: (Math.random() - 0.5) * 1.7,
-            vy: 0.2 + Math.random() * 1,
-            r: 0.7 + Math.random() * 1.3,
-            t: now
-          });
-          if (embers.length > 24) embers.shift();
-        }
-      }
+      lastMove = performance.now();
       start();
     };
 
