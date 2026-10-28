@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ekampreet Singh — Full-stack developer &amp; UI/UX designer</title>
+  <meta name="description" content="Ekampreet Singh — a designer and full-stack builder in New Delhi. Interfaces, React systems, Python services and products that actually ship." />
+  <meta name="theme-color" content="#0D0D0D" />
+  <meta name="color-scheme" content="dark" />
+  <meta property="og:title" content="Ekampreet Singh — Full-stack developer &amp; UI/UX designer" />
+  <meta property="og:description" content="A designer &amp; builder who judges a product by its architecture." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400..600&family=Plus+Jakarta+Sans:wght@400..600&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/hero-portrait-640.webp" imagesrcset="assets/hero-portrait-640.webp 640w, assets/hero-portrait.webp 1024w" imagesizes="(max-width: 980px) 90vw, 46vw" fetchpriority="high" />
+  <link rel="stylesheet" href="styles.css?v=26" />
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<svg class="logo-sprite" width="0" height="0" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <symbol id="logo-react" viewBox="0 0 24 24"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"></path></symbol>
+  <symbol id="logo-typescript" viewBox="0 0 24 24"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"></path></symbol>
+  <symbol id="logo-tailwindcss" viewBox="0 0 24 24"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"></path></symbol>
+  <symbol id="logo-vite" viewBox="0 0 24 24"><path d="M13.056 23.238a.57.57 0 0 1-1.02-.355v-5.202c0-.63-.512-1.143-1.144-1.143H5.148a.57.57 0 0 1-.464-.903l3.777-5.29c.54-.753 0-1.804-.93-1.804H.57a.574.574 0 0 1-.543-.746.6.6 0 0 1 .08-.157L5.008.78a.57.57 0 0 1 .467-.24h14.589a.57.57 0 0 1 .466.903l-3.778 5.29c-.54.755 0 1.806.93 1.806h5.745c.238 0 .424.138.513.322a.56.56 0 0 1-.063.603z"></path></symbol>
+  <symbol id="logo-supabase" viewBox="0 0 24 24"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"></path></symbol>
+  <symbol id="logo-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></symbol>
+  <symbol id="logo-framer" viewBox="0 0 24 24"><path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"></path></symbol>
+  <symbol id="logo-vercel" viewBox="0 0 24 24"><path d="m12 1.608 12 20.784H0Z"></path></symbol>
+  <symbol id="logo-python" viewBox="0 0 24 24"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"></path></symbol>
+  <symbol id="logo-javascript" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"></path></symbol>
+  <symbol id="logo-fastapi" viewBox="0 0 24 24"><path d="M12 .0387C5.3729.0384.0003 5.3931 0 11.9988c-.001 6.6066 5.372 11.9628 12 11.9625 6.628.0003 12.001-5.3559 12-11.9625-.0003-6.6057-5.3729-11.9604-12-11.96m-.829 5.4153h7.55l-7.5805 5.3284h5.1828L5.279 18.5436q2.9466-6.5444 5.892-13.0896"></path></symbol>
+  <symbol id="logo-html5" viewBox="0 0 24 24"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"></path></symbol>
+  <symbol id="logo-css" viewBox="0 0 24 24"><path d="M0 0v20.16A3.84 3.84 0 0 0 3.84 24h16.32A3.84 3.84 0 0 0 24 20.16V3.84A3.84 3.84 0 0 0 20.16 0Zm14.256 13.08c1.56 0 2.28 1.08 2.304 2.64h-1.608c.024-.288-.048-.6-.144-.84-.096-.192-.288-.264-.552-.264-.456 0-.696.264-.696.84-.024.576.288.888.768 1.08.72.288 1.608.744 1.92 1.296q.432.648.432 1.656c0 1.608-.912 2.592-2.496 2.592-1.656 0-2.4-1.032-2.424-2.688h1.68c0 .792.264 1.176.792 1.176.264 0 .456-.072.552-.24.192-.312.24-1.176-.048-1.512-.312-.408-.912-.6-1.32-.816q-.828-.396-1.224-.936c-.24-.36-.36-.888-.36-1.536 0-1.44.936-2.472 2.424-2.448m5.4 0c1.584 0 2.304 1.08 2.328 2.64h-1.608c0-.288-.048-.6-.168-.84-.096-.192-.264-.264-.528-.264-.48 0-.72.264-.72.84s.288.888.792 1.08c.696.288 1.608.744 1.92 1.296.264.432.408.984.408 1.656.024 1.608-.888 2.592-2.472 2.592-1.68 0-2.424-1.056-2.448-2.688h1.68c0 .744.264 1.176.792 1.176.264 0 .456-.072.552-.24.216-.312.264-1.176-.048-1.512-.288-.408-.888-.6-1.32-.816-.552-.264-.96-.576-1.2-.936s-.36-.888-.36-1.536c-.024-1.44.912-2.472 2.4-2.448m-11.031.018c.711-.006 1.419.198 1.839.63.432.432.672 1.128.648 1.992H9.336c.024-.456-.096-.792-.432-.96-.312-.144-.768-.048-.888.24-.12.264-.192.576-.168.864v3.504c0 .744.264 1.128.768 1.128a.65.65 0 0 0 .552-.264c.168-.24.192-.552.168-.84h1.776c.096 1.632-.984 2.712-2.568 2.688-1.536 0-2.496-.864-2.472-2.472v-4.032c0-.816.24-1.44.696-1.848.432-.408 1.146-.624 1.857-.63"></path></symbol>
+</svg>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <div class="container header__inner">
+      <a class="brand" href="#home" aria-label="Ekampreet Singh — home">
+        <span class="brand__mark">ES</span>
+        <span class="brand__text">
+          <span class="brand__name">Ekampreet Singh</span>
+          <span class="brand__tag">DESIGN &times; CODE</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#work">Work</a>
+        <a href="#github">GitHub</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--cream btn--sm" href="#contact" data-cursor="Say hi" data-magnetic>
+          Let&rsquo;s talk
+          <span class="btn__dot" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-btn data-cursor="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" data-menu>
+    <nav aria-label="Mobile">
+      <a href="#home"><span>01</span>Home</a>
+      <a href="#about"><span>02</span>About</a>
+      <a href="#capabilities"><span>03</span>Capabilities</a>
+      <a href="#work"><span>04</span>Work</a>
+      <a href="#github"><span>05</span>GitHub</a>
+      <a href="#contact"><span>06</span>Contact</a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <a href="mailto:ekampreetsingh25111@gmail.com">ekampreetsingh25111@gmail.com</a>
+      <span>New Delhi, India</span>
+    </div>
+  </div>
+
+  <main id="home">
+    <!-- HERO -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <canvas class="hero__field" data-field aria-hidden="true"></canvas>
+      <div class="hero__spot" data-spot aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <figure class="hero__figure" data-parallax aria-hidden="true">
+          <img src="assets/hero-portrait.webp" srcset="assets/hero-portrait-640.webp 640w, assets/hero-portrait.webp 1024w" sizes="(max-width: 980px) 90vw, 46vw" alt="" width="1024" height="1280" fetchpriority="high" decoding="async" />
+        </figure>
+
+        <div class="hero__copy">
+          <p class="eyebrow eyebrow--hero" data-reveal>
+            <span class="status-dot" aria-hidden="true"></span>
+            Hey, I&rsquo;m Ekampreet Singh
+          </p>
+
+          <h1 class="hero__title" data-reveal style="--d:.06s">
+            A designer &amp; builder who judges a product by its <em class="serif">architecture.</em>
+          </h1>
+
+          <p class="hero__lede" data-reveal style="--d:.12s">
+            I build fast, systems-minded web products — where the interface, the data model and the small details agree with each other. React on the front, Python where it earns its place, and an unreasonable interest in how things work under the glass.
+          </p>
+
+          <div class="hero__actions" data-reveal style="--d:.18s">
+            <a class="btn btn--accent" href="#contact" data-cursor="Start" data-magnetic>
+              Start a project
+              <span class="btn__dot btn__dot--dark" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <a class="btn btn--ghost" href="#work" data-cursor="View">View featured work</a>
+          </div>
+
+          <div class="hero__meta" data-reveal style="--d:.24s">
+            <span class="status-dot" aria-hidden="true"></span>
+            Available for freelance
+            <span class="hero__meta-sep" aria-hidden="true"></span>
+            New Delhi, India
+          </div>
+        </div>
+
+        <ul class="hero__services" data-reveal style="--d:.3s">
+          <li><span class="hero__num">01</span><span class="hero__service">Interface design</span></li>
+          <li><span class="hero__num">02</span><span class="hero__service">Full-stack builds</span></li>
+          <li><span class="hero__num">03</span><span class="hero__service">Python &amp; AI systems</span></li>
+          <li><span class="hero__num">04</span><span class="hero__service">Product direction</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- STACK BAND -->
+    <section class="band" aria-label="Tools and stack">
+      <div class="container">
+        <div class="band__card" data-reveal>
+          <div class="band__intro">
+            <span class="label band__status"><span class="status-dot" aria-hidden="true"></span>Currently building</span>
+            <p>TaskSphere 3.0 — <span>a gamified workspace</span></p>
+          </div>
+          <div class="marquee" aria-hidden="true">
+            <div class="marquee__track">
+              <div class="marquee__group">
+                <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Vite</span><span class="pill">Supabase</span><span class="pill">Python</span><span class="pill">FastAPI</span><span class="pill">Tailwind CSS</span><span class="pill">Framer Motion</span><span class="pill">Node.js</span>
+              </div>
+              <div class="marquee__group marquee__group--clone">
+                <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Vite</span><span class="pill">Supabase</span><span class="pill">Python</span><span class="pill">FastAPI</span><span class="pill">Tailwind CSS</span><span class="pill">Framer Motion</span><span class="pill">Node.js</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="split">
+          <div class="split__left">
+            <p class="eyebrow" data-reveal>Behind the Designs</p>
+            <h2 class="h2" data-reveal style="--d:.06s">
+              Crafting digital <em class="serif">experiences</em> with precision.
+            </h2>
+            <div class="signature" data-reveal style="--d:.14s">
+              <img src="assets/portrait.jpg" alt="Portrait of Ekampreet Singh" width="236" height="354" loading="lazy" decoding="async" />
+              <div>
+                <p class="signature__name">Ekampreet Singh</p>
+                <p class="signature__role">Full-stack developer &amp; designer</p>
+                <p class="signature__loc">New Delhi, India</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="split__right">
+            <p class="about__lede" data-reveal style="--d:.1s">
+              I work the whole surface of a product: the visual system, the React that ships it, and the Python behind the parts you can't see.
+            </p>
+            <p data-reveal style="--d:.16s">
+              I'm Ekampreet — a developer and designer who likes the unglamorous part: making the thing actually work. Most of what I build starts as a utility someone needs, not a demo. TaskSphere is the clearest example: a workspace that keeps you on task, then grew accounts, cloud sync, an offline queue and a dragon that keeps score.
+            </p>
+            <p data-reveal style="--d:.22s">
+              Design is how those survive contact with real people; writing is how they explain themselves. Years of poetry and fiction taught me to control tone, pacing and story — so the interface says one clear thing instead of ten vague ones.
+            </p>
+            <a class="text-link" href="#capabilities" data-reveal style="--d:.28s">
+              See how I work
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="about__cards">
+          <article class="mini-card" data-reveal>
+            <span class="mini-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><circle cx="17.5" cy="17.5" r="3.5"/></svg>
+            </span>
+            <h3>UI/UX architecture</h3>
+            <p>Design systems, flows and component libraries that hold up past the mockup.</p>
+          </article>
+          <article class="mini-card" data-reveal style="--d:.08s">
+            <span class="mini-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-5 6 5 6M16 6l5 6-5 6M13.5 4.5l-3 15"/></svg>
+            </span>
+            <h3>Full-stack development</h3>
+            <p>React and Vite on the surface, Supabase and typed data underneath.</p>
+          </article>
+          <article class="mini-card" data-reveal style="--d:.16s">
+            <span class="mini-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
+            </span>
+            <h3>Python &amp; AI systems</h3>
+            <p>Automation, voice and FastAPI services that connect to real machines.</p>
+          </article>
+          <article class="mini-card" data-reveal style="--d:.24s">
+            <span class="mini-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 16l5-8 3 4 4-7"/><circle cx="6" cy="16" r="1.2"/><circle cx="11" cy="8" r="1.2"/><circle cx="14" cy="12" r="1.2"/></svg>
+            </span>
+            <h3>Writing &amp; product voice</h3>
+            <p>Tone, pacing and narrative, so the interface says one clear thing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section capabilities" id="capabilities">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" data-reveal>// 02 — Capabilities</p>
+            <h2 class="h2" data-reveal style="--d:.06s">The stack, and how I <em class="serif">use</em> it.</h2>
+          </div>
+          <p class="section-head__desc" data-reveal style="--d:.12s">
+            Three things I do properly — design the interface, build the product around it, and automate the parts that shouldn't need a human.
+          </p>
+        </div>
+
+        <div class="cap-grid">
+          <article class="cap-card" data-tilt data-reveal>
+            <div class="cap-card__top">
+              <span class="cap-card__index">// 01</span>
+              <span class="cap-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19c-4.5 0-8-2.9-8-6.5S7.5 6 12 6s8 2.9 8 6.5-3.5 6.5-8 6.5Z"/><circle cx="8.5" cy="11" r="1.1"/><circle cx="15.5" cy="11" r="1.1"/><path d="M8.8 15.2c1.9 1.3 4.5 1.3 6.4 0"/></svg>
+              </span>
+            </div>
+            <h3>UI/UX design</h3>
+            <p>Interfaces that explain themselves: hierarchy first, motion second, decoration last. Built as systems, not one-off screens.</p>
+            <ul class="tags">
+              <li>Design systems</li><li>Flows &amp; wireframes</li><li>Prototyping</li>
+            </ul>
+          </article>
+
+          <article class="cap-card" data-tilt data-reveal style="--d:.08s">
+            <div class="cap-card__top">
+              <span class="cap-card__index">// 02</span>
+              <span class="cap-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-5 6 5 6M16 6l5 6-5 6M13.5 4.5l-3 15"/></svg>
+              </span>
+            </div>
+            <h3>Front-end &amp; full-stack</h3>
+            <p>React and TypeScript on the surface, Supabase and typed data underneath. Fast by default, responsive by construction.</p>
+            <ul class="tags">
+              <li>React + TS</li><li>Tailwind CSS</li><li>Supabase</li>
+            </ul>
+          </article>
+
+          <article class="cap-card" data-tilt data-reveal style="--d:.16s">
+            <div class="cap-card__top">
+              <span class="cap-card__index">// 03</span>
+              <span class="cap-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
+              </span>
+            </div>
+            <h3>Python &amp; AI systems</h3>
+            <p>Automation, voice and FastAPI services that connect to real machines — desktop control, speech, and LLM plumbing.</p>
+            <ul class="tags">
+              <li>FastAPI</li><li>Speech &amp; LLMs</li><li>Hardware</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="constellation" data-constellation data-reveal aria-labelledby="constellation-title">
+          <div class="constellation__head">
+            <h3 class="constellation__title" id="constellation-title">Tech <em class="serif">constellation</em></h3>
+            <p class="constellation__note label">What I reach for · updated whenever something better shows up</p>
+          </div>
+
+          <div class="constellation__stage" data-orbit-stage role="group" aria-label="Tools I use, arranged in two orbits">
+            <div class="constellation__glow" aria-hidden="true"></div>
+            <div class="constellation__spot" data-orbit-spot aria-hidden="true"></div>
+            <div class="orbit orbit--outer" aria-hidden="true"><span class="orbit__dot"></span></div>
+            <div class="orbit orbit--inner" aria-hidden="true"><span class="orbit__dot"></span></div>
+            <svg class="constellation__wires" data-orbit-wires aria-hidden="true"></svg>
+
+            <div class="constellation__core" aria-hidden="true">
+              <span class="core__halo"></span>
+              <span class="core__orb">
+                <span class="core__mono">ES</span>
+              </span>
+            </div>
+
+            <ul class="constellation__nodes" data-orbit-nodes>
+              <li class="node" data-ring="inner" data-angle="-90" style="--i:0">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-react"></use></svg></span>
+                  <span class="node__name">React</span>
+                </button>
+              </li>
+              <li class="node" data-ring="inner" data-angle="-18" style="--i:1">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-typescript"></use></svg></span>
+                  <span class="node__name">TypeScript</span>
+                </button>
+              </li>
+              <li class="node" data-ring="inner" data-angle="54" style="--i:2">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-tailwindcss"></use></svg></span>
+                  <span class="node__name">Tailwind</span>
+                </button>
+              </li>
+              <li class="node" data-ring="inner" data-angle="112" style="--i:3">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-vite"></use></svg></span>
+                  <span class="node__name">Vite</span>
+                </button>
+              </li>
+              <li class="node" data-ring="inner" data-angle="198" style="--i:4">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-supabase"></use></svg></span>
+                  <span class="node__name">Supabase</span>
+                </button>
+              </li>
+
+              <li class="node" data-ring="outer" data-angle="-90" style="--i:5">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-github"></use></svg></span>
+                  <span class="node__name">GitHub</span>
+                </button>
+              </li>
+              <li class="node" data-ring="outer" data-angle="-45" style="--i:6">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-framer"></use></svg></span>
+                  <span class="node__name">Framer Motion</span>
+                </button>
+              </li>
+              <li class="node" data-ring="outer" data-angle="0" style="--i:7">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-vercel"></use></svg></span>
+                  <span class="node__name">Vercel</span>
+                </button>
+              </li>
+              <li class="node" data-ring="outer" data-angle="45" style="--i:8">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-python"></use></svg></span>
+                  <span class="node__name">Python</span>
+                </button>
+              </li>
+              <li class="node" data-ring="outer" data-angle="90" style="--i:9">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-javascript"></use></svg></span>
+                  <span class="node__name">JavaScript</span>
+                </button>
+              </li>
+              <li class="node" data-ring="outer" data-angle="135" style="--i:10">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-fastapi"></use></svg></span>
+                  <span class="node__name">FastAPI</span>
+                </button>
+              </li>
+              <li class="node" data-ring="outer" data-angle="180" style="--i:11">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-html5"></use></svg></span>
+                  <span class="node__name">HTML5</span>
+                </button>
+              </li>
+              <li class="node" data-ring="outer" data-angle="-135" style="--i:12">
+                <button class="node__btn" type="button">
+                  <span class="node__badge" aria-hidden="true"><svg class="node__logo" viewBox="0 0 24 24"><use href="#logo-css"></use></svg></span>
+                  <span class="node__name">CSS3</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="constellation__foot">
+            <p class="constellation__legend"><span class="legend-ring legend-ring--inner" aria-hidden="true"></span>Inner orbit — daily drivers</p>
+            <p class="constellation__legend constellation__legend--outer"><span class="legend-ring" aria-hidden="true"></span>Outer orbit — the full surface</p>
+            <p class="constellation__hint"><span class="hint-hover">Hover a node to inspect</span><span class="hint-tap">Tap a node to identify</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section work" id="work">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow" data-reveal>// 03 — Selected work</p>
+            <h2 class="h2" data-reveal style="--d:.06s">Featured <em class="serif">project</em></h2>
+          </div>
+          <p class="section-head__desc" data-reveal style="--d:.12s">
+            One product, taken from an idea to a live app: accounts, cloud sync, an offline queue, five visual skins and a gamification loop that keeps score.
+          </p>
+        </div>
+
+        <article class="feature" data-reveal>
+          <div class="feature__body">
+            <div class="feature__meta">
+              <span class="badge badge--live"><span class="status-dot" aria-hidden="true"></span>Live</span>
+              <span class="label">Flagship · 2026</span>
+            </div>
+            <h3 class="feature__title">TaskSphere Workspace</h3>
+            <p class="feature__desc">
+              A gamified productivity workspace where progress is visible: quests, focus rooms, streaks and a dragon that keeps score. Built as a real product — accounts, cloud sync, an offline queue and five visual skins.
+            </p>
+            <ul class="tags tags--feature">
+              <li>Realtime sync</li><li>Offline queue</li><li>Five skins</li><li>React</li><li>TypeScript</li><li>Supabase</li>
+            </ul>
+            <div class="feature__actions">
+              <a class="btn btn--accent" href="https://tasksphere-workspace-web.vercel.app/" target="_blank" rel="noopener" data-cursor="Launch" data-magnetic>
+                Launch live app
+                <span class="btn__dot btn__dot--dark" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </a>
+              <a class="btn btn--ghost" href="https://github.com/ekampreetsingh-dev/Tasksphere-Workspace-" target="_blank" rel="noopener">Source</a>
+            </div>
+          </div>
+
+          <div class="feature__media">
+            <div class="shot">
+              <div class="shot__bar" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <div class="shot__url">tasksphere-workspace-web.vercel.app</div>
+              </div>
+              <img src="assets/tasksphere.webp" srcset="assets/tasksphere-720.webp 720w, assets/tasksphere.webp 1280w" sizes="(max-width: 980px) 84vw, 560px" alt="TaskSphere Workspace dashboard — campaign ledger, quest counts and focus metrics" width="1280" height="800" loading="lazy" decoding="async" />
+            </div>
+            <span class="feature__float label">Dragon keeps score</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GITHUB -->
+    <section class="section github" id="github">
+      <div class="container">
+        <div class="github__head">
+          <div>
+            <p class="eyebrow" data-reveal>// 04 — GitHub lab</p>
+            <h2 class="h2" data-reveal style="--d:.06s">Live GitHub <em class="serif">repositories</em></h2>
+            <p class="github__sub" data-reveal style="--d:.12s">Pulled straight from the GitHub API every time this page loads — no screenshots, no hand-picked list.</p>
+          </div>
+          <a class="btn btn--ghost btn--sm" href="https://github.com/ekampreetsingh-dev" target="_blank" rel="noopener" data-reveal style="--d:.16s">
+            Follow on GitHub
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <div class="repo-deck" data-deck>
+          <p class="repo-deck__hint" aria-hidden="true">Swipe to browse <span>→</span></p>
+          <div class="repo-grid" data-repos aria-live="polite">
+          <article class="repo-card">
+            <div class="repo-card__top">
+              <span class="repo-card__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5V4.5Z"/><path d="M4 4.5A2.5 2.5 0 0 0 6.5 7H20"/></svg>
+              </span>
+              <span class="repo-card__live"><span class="status-dot" aria-hidden="true"></span>Live</span>
+            </div>
+            <h3>Portfolio-Web-</h3>
+            <p>No description yet — see the repository for details.</p>
+            <div class="repo-card__foot">
+              <span class="lang"><i style="--lang:#8A8A8A"></i>Repo</span>
+              <a href="https://github.com/ekampreetsingh-dev/Portfolio-Web-" target="_blank" rel="noopener" aria-label="Open Portfolio-Web- on GitHub">Open ↗</a>
+            </div>
+          </article>
+
+          <article class="repo-card">
+            <div class="repo-card__top">
+              <span class="repo-card__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5V4.5Z"/><path d="M4 4.5A2.5 2.5 0 0 0 6.5 7H20"/></svg>
+              </span>
+              <span class="repo-card__live"><span class="status-dot" aria-hidden="true"></span>Live</span>
+            </div>
+            <h3>Tasksphere-Workspace</h3>
+            <p>A lightweight web productivity suite with an interactive task board and a sleek glassmorphic dark-mode interface — fast, responsive, no framework overhead.</p>
+            <div class="repo-card__foot">
+              <span class="lang"><i style="--lang:#E34C26"></i>HTML</span>
+              <a href="https://github.com/ekampreetsingh-dev/Tasksphere-Workspace" target="_blank" rel="noopener" aria-label="Open Tasksphere-Workspace on GitHub">Open ↗</a>
+            </div>
+          </article>
+
+          <article class="repo-card">
+            <div class="repo-card__top">
+              <span class="repo-card__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5V4.5Z"/><path d="M4 4.5A2.5 2.5 0 0 0 6.5 7H20"/></svg>
+              </span>
+              <span class="repo-card__live"><span class="status-dot" aria-hidden="true"></span>Live</span>
+            </div>
+            <h3>Tasksphere-Workspace-</h3>
+            <p>TaskSphere Workspace is a high-performance productivity workspace — the current generation with accounts, cloud sync and multiple skins.</p>
+            <div class="repo-card__foot">
+              <span class="lang"><i style="--lang:#E34C26"></i>HTML</span>
+              <a href="https://github.com/ekampreetsingh-dev/Tasksphere-Workspace-" target="_blank" rel="noopener" aria-label="Open Tasksphere-Workspace- on GitHub">Open ↗</a>
+            </div>
+          </article>
+          </div>
+          <div class="repo-dots" data-repo-dots aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact__head">
+          <p class="eyebrow" data-reveal>// 05 — Contact</p>
+          <h2 class="h2 h2--xl" data-reveal style="--d:.06s">Get in touch <em class="serif">today.</em></h2>
+          <p class="contact__lede" data-reveal style="--d:.12s">
+            Available for freelance web development, custom admin utilities and UI/UX work. Send what you are building — even a rough brief — and I will reply with a plan, usually within a day.
+          </p>
+        </div>
+
+        <div class="contact__grid">
+          <div class="contact__info" data-reveal>
+            <a class="info-row" href="mailto:ekampreetsingh25111@gmail.com">
+              <span class="info-row__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>
+              </span>
+              <span class="info-row__text">
+                <span class="label">Email</span>
+                <span class="info-row__value">ekampreetsingh25111@gmail.com</span>
+              </span>
+              <span class="info-row__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="info-row" href="https://wa.me/919803522070" target="_blank" rel="noopener">
+              <span class="info-row__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.6 4-2.1 1.7a13 13 0 0 0 6.3 6.3l1.7-2.1 4 1.6V19a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 7.2 2 2 0 0 1 5 4Z"/></svg>
+              </span>
+              <span class="info-row__text">
+                <span class="label">Phone · WhatsApp</span>
+                <span class="info-row__value">+91 98035 22070</span>
+              </span>
+              <span class="info-row__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="info-row" href="https://github.com/ekampreetsingh-dev" target="_blank" rel="noopener">
+              <span class="info-row__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+              </span>
+              <span class="info-row__text">
+                <span class="label">GitHub</span>
+                <span class="info-row__value">@ekampreetsingh-dev</span>
+              </span>
+              <span class="info-row__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <div class="info-row info-row--static">
+              <span class="info-row__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              </span>
+              <span class="info-row__text">
+                <span class="label">Studio</span>
+                <span class="info-row__value">New Delhi, India · Mon–Sat, 10:00–19:00 IST</span>
+              </span>
+            </div>
+
+            <div class="contact__promise">
+              <span class="label">Open for freelance</span>
+              <p>Meaningful work, <em class="serif">made to last.</em></p>
+              <a class="btn btn--cream btn--sm" href="https://wa.me/919803522070" target="_blank" rel="noopener" data-cursor="Book" data-magnetic>
+                Book a call
+                <span class="btn__dot" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form" data-contact-form data-reveal style="--d:.1s">
+            <div class="contact-form__head">
+              <h3>Leave a message</h3>
+              <p>Opens your mail app with the details filled in — nothing is stored here.</p>
+            </div>
+            <div class="form-grid">
+              <label class="field">
+                <span>Full name</span>
+                <input type="text" name="name" autocomplete="name" placeholder="Your name" required />
+              </label>
+              <label class="field">
+                <span>Email address</span>
+                <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+              </label>
+              <label class="field field--full">
+                <span>Subject</span>
+                <input type="text" name="subject" placeholder="What are you building?" />
+              </label>
+              <label class="field field--full">
+                <span>Message</span>
+                <textarea name="message" rows="4" placeholder="A rough brief is fine — timeline, scope, links." required></textarea>
+              </label>
+            </div>
+            <button class="btn btn--accent contact-form__submit" type="submit" data-cursor="Send">
+              Send message
+              <span class="btn__dot btn__dot--dark" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </button>
+            <p class="contact-form__note" data-form-note>Prefer a call? <a href="https://wa.me/919803522070" target="_blank" rel="noopener">+91 98035 22070</a> · Mon–Sat</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Ekampreet Singh</span>
+        <span>Designed &amp; built in New Delhi, India</span>
+        <a class="btn btn--ghost btn--sm" href="#home">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="dock" aria-label="Quick navigation" data-dock>
+    <span class="dock__rail" aria-hidden="true"><span data-dock-bar></span></span>
+    <a class="is-active" href="#home" data-dock-link aria-current="location">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1v-9.5Z"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="#about" data-dock-link>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5.2 20c.4-3.3 3.3-5.6 6.8-5.6s6.4 2.3 6.8 5.6"/></svg>
+      <span>About</span>
+    </a>
+    <a href="#work" data-dock-link>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.6"/></svg>
+      <span>Work</span>
+    </a>
+    <a href="#contact" data-dock-link>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.6"/><path d="m4.5 7.5 7.5 5.5 7.5-5.5"/></svg>
+      <span>Talk</span>
+    </a>
+  </nav>
+
+  <canvas class="aura-field" data-aura-field aria-hidden="true"></canvas>
+
+  <div class="cursor" data-cursor-root aria-hidden="true">
+    <span class="cursor__ring" data-cursor-ring></span>
+    <span class="cursor__dot" data-cursor-dot></span>
+    <span class="cursor__label" data-cursor-text></span>
+  </div>
+
+  <script src="main.js?v=26" defer></script>
+</body>
+</html>
