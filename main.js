@@ -287,14 +287,53 @@
     const dotEl = $('[data-cursor-dot]', cursorEl);
     const ringEl = $('[data-cursor-ring]', cursorEl);
     const textEl = $('[data-cursor-text]', cursorEl);
+    const TARGETS = 'a, button, [data-cursor], input, textarea, select';
+    let px = -100;
+    let py = -100;
+    let rx = px;
+    let ry = py;
+    let frame = 0;
+    let lastTs = 0;
+    let scrollFrame = 0;
     let shown = false;
     let lastTarget = null;
 
-    const place = (x, y) => {
-      const at = 'translate3d(' + x + 'px, ' + y + 'px, 0) ';
-      dotEl.style.transform = at + 'translate(-50%, -50%)';
-      ringEl.style.transform = at + 'translate(-50%, -50%)';
-      textEl.style.transform = 'translate3d(' + (x + 22) + 'px, ' + (y + 20) + 'px, 0)';
+    const placeDot = () => {
+      dotEl.style.transform = 'translate3d(' + px + 'px, ' + py + 'px, 0) translate(-50%, -50%)';
+      textEl.style.transform = 'translate3d(' + (px + 22) + 'px, ' + (py + 20) + 'px, 0)';
+    };
+
+    const placeRing = () => {
+      const dx = px - rx;
+      const dy = py - ry;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const t = Math.min(dist / 130, 1);
+      const sx = (1 + t * 0.26) * (1 + t * 0.2);
+      const sy = (1 + t * 0.26) * (1 - t * 0.14);
+      const angle = dist > 2 ? Math.atan2(dy, dx) * 57.2958 : 0;
+      ringEl.style.transform = 'translate3d(' + rx + 'px, ' + ry + 'px, 0) translate(-50%, -50%) rotate(' + angle + 'deg) scale(' + sx.toFixed(3) + ', ' + sy.toFixed(3) + ')';
+    };
+
+    const glide = (ts) => {
+      const dt = lastTs ? Math.min(50, ts - lastTs) : 16.7;
+      lastTs = ts;
+      const k = 1 - Math.pow(0.78, dt / 16.7);
+      rx += (px - rx) * k;
+      ry += (py - ry) * k;
+      placeRing();
+      if (Math.abs(px - rx) > 0.4 || Math.abs(py - ry) > 0.4) {
+        frame = requestAnimationFrame(glide);
+      } else {
+        rx = px;
+        ry = py;
+        placeRing();
+        frame = 0;
+        lastTs = 0;
+      }
+    };
+
+    const start = () => {
+      if (!frame) frame = requestAnimationFrame(glide);
     };
 
     const setTarget = (target) => {
@@ -312,26 +351,47 @@
       cursorEl.classList.toggle('is-link', Boolean(target) && !isField);
     };
 
+    const resolveAtPointer = () => {
+      const el = document.elementFromPoint(px, py);
+      setTarget(el instanceof Element ? el.closest(TARGETS) : null);
+    };
+
     document.addEventListener('pointermove', (event) => {
       if (event.pointerType === 'touch') return;
-      place(event.clientX, event.clientY);
+      px = event.clientX;
+      py = event.clientY;
       if (!shown) {
         shown = true;
+        rx = px;
+        ry = py;
         document.body.classList.add('has-cursor');
       }
+      placeDot();
+      start();
     }, { passive: true });
 
     document.addEventListener('pointerover', (event) => {
       if (event.pointerType === 'touch') return;
-      setTarget(event.target instanceof Element
-        ? event.target.closest('a, button, [data-cursor], input, textarea, select')
-        : null);
+      setTarget(event.target instanceof Element ? event.target.closest(TARGETS) : null);
+    }, { passive: true });
+
+    window.addEventListener('scroll', () => {
+      if (!shown || scrollFrame) return;
+      scrollFrame = requestAnimationFrame(() => {
+        scrollFrame = 0;
+        resolveAtPointer();
+      });
     }, { passive: true });
 
     document.documentElement.addEventListener('pointerleave', () => {
       document.body.classList.remove('has-cursor');
       setTarget(null);
       shown = false;
+      if (frame) {
+        cancelAnimationFrame(frame);
+        frame = 0;
+        lastTs = 0;
+      }
     });
   }
 
