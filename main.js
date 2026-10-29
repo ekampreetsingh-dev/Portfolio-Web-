@@ -281,27 +281,17 @@
     }, { passive: true });
   }
 
-  /* custom cursor (desktop, fine pointer) */
+  /* custom cursor: orange circle with an orange aura (desktop, fine pointer) */
   const cursorEl = $('[data-cursor-root]');
   if (cursorEl && finePointer) {
     const dotEl = $('[data-cursor-dot]', cursorEl);
-    const ringEl = $('[data-cursor-ring]', cursorEl);
     const textEl = $('[data-cursor-text]', cursorEl);
-    let x = -100;
-    let y = -100;
-    let rx = x;
-    let ry = y;
-    let frame = 0;
-    let seen = false;
     let lastTarget = null;
+    let shown = false;
 
-    const moveRing = () => {
-      rx += (x - rx) * 0.2;
-      ry += (y - ry) * 0.2;
-      ringEl.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
-      textEl.style.transform = `translate3d(${rx + 20}px, ${ry + 16}px, 0)`;
-      if (Math.abs(x - rx) > 0.2 || Math.abs(y - ry) > 0.2) frame = requestAnimationFrame(moveRing);
-      else frame = 0;
+    const place = (x, y) => {
+      dotEl.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0) translate(-50%, -50%)';
+      textEl.style.transform = 'translate3d(' + (x + 16) + 'px, ' + (y + 18) + 'px, 0)';
     };
 
     const setTarget = (target) => {
@@ -319,17 +309,11 @@
 
     document.addEventListener('pointermove', (event) => {
       if (event.pointerType === 'touch') return;
-      x = event.clientX;
-      y = event.clientY;
-      dotEl.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
-      if (!seen) {
-        seen = true;
-        rx = x;
-        ry = y;
+      place(event.clientX, event.clientY);
+      if (!shown) {
+        shown = true;
         document.body.classList.add('has-cursor');
       }
-      textEl.style.transform = `translate3d(${rx + 20}px, ${ry + 16}px, 0)`;
-      if (!frame) frame = requestAnimationFrame(moveRing);
     }, { passive: true });
 
     document.addEventListener('pointerover', (event) => {
@@ -342,11 +326,7 @@
     document.documentElement.addEventListener('pointerleave', () => {
       document.body.classList.remove('has-cursor');
       setTarget(null);
-      seen = false;
-      if (frame) {
-        cancelAnimationFrame(frame);
-        frame = 0;
-      }
+      shown = false;
     });
   }
 
@@ -385,23 +365,15 @@
       auraCtx.globalCompositeOperation = 'lighter';
 
       const pulse = 0.94 + 0.06 * Math.sin(now * 0.0021);
-      const auraRadius = 165 * pulse;
+      const auraRadius = 200 * pulse;
       const aura = auraCtx.createRadialGradient(px, py, 0, px, py, auraRadius);
-      aura.addColorStop(0, 'rgba(255,199,156,' + (0.17 * strength).toFixed(3) + ')');
-      aura.addColorStop(0.3, 'rgba(255,122,31,' + (0.12 * strength).toFixed(3) + ')');
-      aura.addColorStop(0.72, 'rgba(255,87,0,' + (0.055 * strength).toFixed(3) + ')');
+      aura.addColorStop(0, 'rgba(255,140,60,' + (0.34 * strength).toFixed(3) + ')');
+      aura.addColorStop(0.28, 'rgba(255,110,26,' + (0.24 * strength).toFixed(3) + ')');
+      aura.addColorStop(0.62, 'rgba(255,87,0,' + (0.12 * strength).toFixed(3) + ')');
       aura.addColorStop(1, 'rgba(255,87,0,0)');
       auraCtx.fillStyle = aura;
       auraCtx.beginPath();
       auraCtx.arc(px, py, auraRadius, 0, Math.PI * 2);
-      auraCtx.fill();
-
-      const core = auraCtx.createRadialGradient(px, py, 0, px, py, 26);
-      core.addColorStop(0, 'rgba(255,244,235,' + (0.26 * strength).toFixed(3) + ')');
-      core.addColorStop(1, 'rgba(255,140,70,0)');
-      auraCtx.fillStyle = core;
-      auraCtx.beginPath();
-      auraCtx.arc(px, py, 26, 0, Math.PI * 2);
       auraCtx.fill();
 
       if (target === 1 ? now - lastMove < 1500 : strength >= 0.012) raf = requestAnimationFrame(paint);
