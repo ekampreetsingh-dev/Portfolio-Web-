@@ -287,20 +287,14 @@
     const dotEl = $('[data-cursor-dot]', cursorEl);
     const ringEl = $('[data-cursor-ring]', cursorEl);
     const textEl = $('[data-cursor-text]', cursorEl);
-    let x = -100;
-    let y = -100;
-    let rx = x;
-    let ry = y;
-    let frame = 0;
     let shown = false;
     let lastTarget = null;
 
-    const glide = () => {
-      rx += (x - rx) * 0.2;
-      ry += (y - ry) * 0.2;
-      ringEl.style.transform = 'translate3d(' + rx + 'px, ' + ry + 'px, 0) translate(-50%, -50%)';
-      textEl.style.transform = 'translate3d(' + (rx + 22) + 'px, ' + (ry + 20) + 'px, 0)';
-      frame = Math.abs(x - rx) > 0.2 || Math.abs(y - ry) > 0.2 ? requestAnimationFrame(glide) : 0;
+    const place = (x, y) => {
+      const at = 'translate3d(' + x + 'px, ' + y + 'px, 0) ';
+      dotEl.style.transform = at + 'translate(-50%, -50%)';
+      ringEl.style.transform = at + 'translate(-50%, -50%)';
+      textEl.style.transform = 'translate3d(' + (x + 22) + 'px, ' + (y + 20) + 'px, 0)';
     };
 
     const setTarget = (target) => {
@@ -320,16 +314,11 @@
 
     document.addEventListener('pointermove', (event) => {
       if (event.pointerType === 'touch') return;
-      x = event.clientX;
-      y = event.clientY;
-      dotEl.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0) translate(-50%, -50%)';
+      place(event.clientX, event.clientY);
       if (!shown) {
         shown = true;
-        rx = x;
-        ry = y;
         document.body.classList.add('has-cursor');
       }
-      if (!frame) frame = requestAnimationFrame(glide);
     }, { passive: true });
 
     document.addEventListener('pointerover', (event) => {
@@ -343,10 +332,6 @@
       document.body.classList.remove('has-cursor');
       setTarget(null);
       shown = false;
-      if (frame) {
-        cancelAnimationFrame(frame);
-        frame = 0;
-      }
     });
   }
 
