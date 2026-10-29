@@ -281,39 +281,55 @@
     }, { passive: true });
   }
 
-  /* custom cursor: orange circle with an orange aura (desktop, fine pointer) */
+  /* custom cursor: hollow orange ring that morphs on hover, precise dot, orange aura */
   const cursorEl = $('[data-cursor-root]');
   if (cursorEl && finePointer) {
     const dotEl = $('[data-cursor-dot]', cursorEl);
+    const ringEl = $('[data-cursor-ring]', cursorEl);
     const textEl = $('[data-cursor-text]', cursorEl);
-    let lastTarget = null;
+    let x = -100;
+    let y = -100;
+    let rx = x;
+    let ry = y;
+    let frame = 0;
     let shown = false;
+    let lastTarget = null;
 
-    const place = (x, y) => {
-      dotEl.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0) translate(-50%, -50%)';
-      textEl.style.transform = 'translate3d(' + (x + 16) + 'px, ' + (y + 18) + 'px, 0)';
+    const glide = () => {
+      rx += (x - rx) * 0.2;
+      ry += (y - ry) * 0.2;
+      ringEl.style.transform = 'translate3d(' + rx + 'px, ' + ry + 'px, 0) translate(-50%, -50%)';
+      textEl.style.transform = 'translate3d(' + (rx + 22) + 'px, ' + (ry + 20) + 'px, 0)';
+      frame = Math.abs(x - rx) > 0.2 || Math.abs(y - ry) > 0.2 ? requestAnimationFrame(glide) : 0;
     };
 
     const setTarget = (target) => {
       if (target === lastTarget) return;
       lastTarget = target;
+      const isField = Boolean(target && target.matches('input, textarea, select'));
       let label = '';
       if (target) {
-        if (target.matches('input, textarea, select')) label = 'Type';
+        if (isField) label = 'Type';
         else if (target.classList.contains('node__btn')) label = 'Inspect';
         else label = target.getAttribute('data-cursor') || (target.tagName === 'BUTTON' ? 'Click' : 'Open');
       }
       textEl.textContent = label;
-      cursorEl.classList.toggle('is-link', Boolean(target));
+      cursorEl.classList.toggle('is-text', isField);
+      cursorEl.classList.toggle('is-link', Boolean(target) && !isField);
     };
 
     document.addEventListener('pointermove', (event) => {
       if (event.pointerType === 'touch') return;
-      place(event.clientX, event.clientY);
+      x = event.clientX;
+      y = event.clientY;
+      dotEl.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0) translate(-50%, -50%)';
       if (!shown) {
         shown = true;
+        rx = x;
+        ry = y;
         document.body.classList.add('has-cursor');
       }
+      if (!frame) frame = requestAnimationFrame(glide);
     }, { passive: true });
 
     document.addEventListener('pointerover', (event) => {
@@ -327,6 +343,10 @@
       document.body.classList.remove('has-cursor');
       setTarget(null);
       shown = false;
+      if (frame) {
+        cancelAnimationFrame(frame);
+        frame = 0;
+      }
     });
   }
 
